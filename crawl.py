@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-import requests, pymysql, time
+import requests, pymysql, time, Comment
 
 
 sql_ip = '149.28.29.84'
@@ -47,6 +47,7 @@ rows = cursor.fetchall()
 
 
 def requestBenedu(index):
+    global elapTime
     reqURL = crawlURL + str(index)
     req = requests.get(reqURL)
     reqText = req.text
@@ -54,19 +55,25 @@ def requestBenedu(index):
     reqStatus = req.status_code
     reqOk = req.ok
 
+    soup = BeautifulSoup(reqText, "html.parser")
+
+    elapTime = time.time() - start_time
     print("==============================")
     print("URL: " + reqURL)
     # print("Text: " + reqText)
+    print("Soup: " + str(soup))
     print("TextSize: " + str(len(reqText)))
     print("Headers: " + str(reqHeaders))
     print("Status: " + str(reqStatus))
     print("OK: " + str(reqOk))
-    print("==============================")
 
 
 loop = 1
 reqId = 1
+elapTime = 0.0
 while 1:
+    start_time = time.time()
     requestBenedu(reqId)
     reqId += 1
+    print("--- %s seconds ---" % elapTime)
     time.sleep(0.01)
