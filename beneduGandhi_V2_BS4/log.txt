@@ -1,10 +1,10 @@
 ==============================
 URL: https://www.benedu.co.kr/Views/00_Common/99_BeneduQuestion.aspx?qst_id=1
 TextSize: 3069
-Headers: {'Cache-Control': 'private', 'Content-Type': 'text/html; charset=utf-8', 'Server': 'Microsoft-IIS/8.5', 'Set-Cookie': 'ASP.NET_SessionId=que2ts0xi00xz3wa1jo45a3d; path=/; HttpOnly', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'Date': 'Tue, 01 Jan 2019 08:09:35 GMT', 'Content-Length': '3091'}
+Headers: {'Cache-Control': 'private', 'Content-Type': 'text/html; charset=utf-8', 'Server': 'Microsoft-IIS/8.5', 'Set-Cookie': 'ASP.NET_SessionId=lgjx3hwd1ek2yjtwac5ur4xk; path=/; HttpOnly', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'Date': 'Wed, 02 Jan 2019 05:14:37 GMT', 'Content-Length': '3091'}
 Status: 200
 OK: True
---- 0.29079580307006836 seconds --- 
+--- 0.30669307708740234 seconds --- 
 Soup: 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -54,10 +54,10 @@ Soup:
 ==============================
 URL: https://www.benedu.co.kr/Views/00_Common/99_BeneduQuestion.aspx?qst_id=2
 TextSize: 3069
-Headers: {'Cache-Control': 'private', 'Content-Type': 'text/html; charset=utf-8', 'Server': 'Microsoft-IIS/8.5', 'Set-Cookie': 'ASP.NET_SessionId=bvvzwlecnrwdpix44zfm4cvs; path=/; HttpOnly', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'Date': 'Tue, 01 Jan 2019 08:09:35 GMT', 'Content-Length': '3091'}
+Headers: {'Cache-Control': 'private', 'Content-Type': 'text/html; charset=utf-8', 'Server': 'Microsoft-IIS/8.5', 'Set-Cookie': 'ASP.NET_SessionId=mmr3qdgvs1ik3hqcug5sjsnl; path=/; HttpOnly', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'Date': 'Wed, 02 Jan 2019 05:14:37 GMT', 'Content-Length': '3091'}
 Status: 200
 OK: True
---- 0.07211995124816895 seconds --- 
+--- 0.06293797492980957 seconds --- 
 Soup: 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -107,10 +107,10 @@ Soup:
 ==============================
 URL: https://www.benedu.co.kr/Views/00_Common/99_BeneduQuestion.aspx?qst_id=3
 TextSize: 3069
-Headers: {'Cache-Control': 'private', 'Content-Type': 'text/html; charset=utf-8', 'Server': 'Microsoft-IIS/8.5', 'Set-Cookie': 'ASP.NET_SessionId=5ebsdfcl20xq0skvo3slw5ir; path=/; HttpOnly', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'Date': 'Tue, 01 Jan 2019 08:09:35 GMT', 'Content-Length': '3091'}
+Headers: {'Cache-Control': 'private', 'Content-Type': 'text/html; charset=utf-8', 'Server': 'Microsoft-IIS/8.5', 'Set-Cookie': 'ASP.NET_SessionId=i04jyfoaew2rnssiy30nyt3k; path=/; HttpOnly', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'Date': 'Wed, 02 Jan 2019 05:14:37 GMT', 'Content-Length': '3091'}
 Status: 200
 OK: True
---- 0.06876683235168457 seconds --- 
+--- 0.06134653091430664 seconds --- 
 Soup: 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -160,10 +160,10 @@ Soup:
 ==============================
 URL: https://www.benedu.co.kr/Views/00_Common/99_BeneduQuestion.aspx?qst_id=4
 TextSize: 3069
-Headers: {'Cache-Control': 'private', 'Content-Type': 'text/html; charset=utf-8', 'Server': 'Microsoft-IIS/8.5', 'Set-Cookie': 'ASP.NET_SessionId=sv03lhlc2i5dz2dnusvixdbk; path=/; HttpOnly', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'Date': 'Tue, 01 Jan 2019 08:09:35 GMT', 'Content-Length': '3091'}
+Headers: {'Cache-Control': 'private', 'Content-Type': 'text/html; charset=utf-8', 'Server': 'Microsoft-IIS/8.5', 'Set-Cookie': 'ASP.NET_SessionId=feqxdekpzdixf1i2agnxg15r; path=/; HttpOnly', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'Date': 'Wed, 02 Jan 2019 05:14:37 GMT', 'Content-Length': '3091'}
 Status: 200
 OK: True
---- 0.06747817993164062 seconds --- 
+--- 0.0641777515411377 seconds --- 
 Soup: 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -213,10 +213,10 @@ Soup:
 ==============================
 URL: https://www.benedu.co.kr/Views/00_Common/99_BeneduQuestion.aspx?qst_id=5
 TextSize: 3069
-Headers: {'Cache-Control': 'private', 'Content-Type': 'text/html; charset=utf-8', 'Server': 'Microsoft-IIS/8.5', 'Set-Cookie': 'ASP.NET_SessionId=0svzdtouy10rlqnetzv352oh; path=/; HttpOnly', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'Date': 'Tue, 01 Jan 2019 08:09:36 GMT', 'Content-Length': '3091'}
+Headers: {'Cache-Control': 'private', 'Content-Type': 'text/html; charset=utf-8', 'Server': 'Microsoft-IIS/8.5', 'Set-Cookie': 'ASP.NET_SessionId=0svd2dvnwdiguc0w33phyfck; path=/; HttpOnly', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'Date': 'Wed, 02 Jan 2019 05:14:37 GMT', 'Content-Length': '3091'}
 Status: 200
 OK: True
---- 0.06580734252929688 seconds --- 
+--- 0.06313323974609375 seconds --- 
 Soup: 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -266,7 +266,7 @@ Soup:
 ==============================
 URL: https://www.benedu.co.kr/Views/00_Common/99_BeneduQuestion.aspx?qst_id=6
 TextSize: 19624
-Headers: {'Cache-Control': 'private', 'Content-Type': 'text/html; charset=utf-8', 'Server': 'Microsoft-IIS/8.5', 'Set-Cookie': 'ASP.NET_SessionId=md5jb450xzdgfwj3qnwzxzuq; path=/; HttpOnly', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'Date': 'Tue, 01 Jan 2019 08:09:36 GMT', 'Content-Length': '21400'}
+Headers: {'Cache-Control': 'private', 'Content-Type': 'text/html; charset=utf-8', 'Server': 'Microsoft-IIS/8.5', 'Set-Cookie': 'ASP.NET_SessionId=crqct0i3bk33cwiqj0pxfjoa; path=/; HttpOnly', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'Date': 'Wed, 02 Jan 2019 05:14:37 GMT', 'Content-Length': '21400'}
 Status: 200
 OK: True
---- 0.0825200080871582 seconds --- 
+--- 0.07923150062561035 seconds --- 

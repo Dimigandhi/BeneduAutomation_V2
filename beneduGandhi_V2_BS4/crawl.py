@@ -27,18 +27,6 @@ NUMS_DICT = {
     "nine": "9",
 }
 
-SUBJECT_DICT = {
-    "korean": '#body_rdoSbjCode_0',
-    "math": '#body_rdoSbjCode_1',
-    "english": '#body_rdoSbjCode_2',
-    "history": '#body_rdoSbjCode_3',
-    "physics1": '#body_rdoSbjCode_4',
-    "chemistry1": '#body_rdoSbjCode_5',
-    "science": '#body_rdoSbjCode_6',
-    "industry": '#body_rdoSbjCode_7',
-    "drafting": '#body_rdoSbjCode_8'
-}
-
 
 conn = pymysql.connect(host=sql_ip, port=3306, user=sql_user, password=sql_pw, database='benedu')
 cursor = conn.cursor()

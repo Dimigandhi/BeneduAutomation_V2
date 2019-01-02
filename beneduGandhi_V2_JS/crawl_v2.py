@@ -14,11 +14,21 @@ indexURL = 'https://benedu.co.kr/Index.aspx'
 sql_ip = '149.28.29.84'
 sql_user = 'benedu_RW'
 sql_pw = 'bendbpass!@'
+conn = pymysql.connect(host=sql_ip, port=3306, user=sql_user, password=sql_pw, database='benedu')
+cursor = conn.cursor()
 ###########새로운 DB로 수정 필요############
+# answerSheet_2 테이블로 접속하면 됨
 
 
-benID = 'mamy0320@naver.com'
+print("Benedu Email: ")
+benID = input()
+# benID = 'mamy0320@naver.com'
+print("Benedu Password: ")
 benPW = input()
+for i in range(15):
+    print()
+print('------------------------------')
+print()
 
 
 NUMS_DICT = {
@@ -30,15 +40,7 @@ NUMS_DICT = {
 }
 
 
-conn = pymysql.connect(host=sql_ip, port=3306, user=sql_user, password=sql_pw, database='benedu')
-cursor = conn.cursor()
-
-
-
 def login(benID, benPW):
-    for i in range(15):
-        print()
-    print('------------------------------')
     print()
 
     driver.get(indexURL)
@@ -110,6 +112,3 @@ while(1):
     time.sleep(1.5)
     exScr(counter)
     input()
-
-
-

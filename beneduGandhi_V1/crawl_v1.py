@@ -56,7 +56,7 @@ cursor.execute("SELECT * FROM answerSheet;")
 rows = cursor.fetchall()
 
 
-def login(benID, benPW):
+# def login(benID, benPW):
 def login(benID, benPW,driver):
     for jj in range(15):
         print()
