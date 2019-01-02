@@ -14,9 +14,12 @@ indexURL = 'https://benedu.co.kr/Index.aspx'
 sql_ip = '149.28.29.84'
 sql_user = 'benedu_RW'
 sql_pw = 'bendbpass!@'
+###########새로운 DB로 수정 필요############
+
 
 benID = 'mamy0320@naver.com'
-benPW = 'thdehehd1302'
+benPW = input()
+
 
 NUMS_DICT = {
     "①" : 1,
