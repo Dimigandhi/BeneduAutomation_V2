@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
-import requests, pymysql, time, Comment
+import requests, pymysql, time
+# import Comment
 
 
 sql_ip = '149.28.29.84'
@@ -27,7 +28,6 @@ NUMS_DICT = {
 }
 
 SUBJECT_DICT = {
-    # !!수학은 주관식 추가해야함!!
     "korean": '#body_rdoSbjCode_0',
     "math": '#body_rdoSbjCode_1',
     "english": '#body_rdoSbjCode_2',
@@ -44,6 +44,10 @@ conn = pymysql.connect(host=sql_ip, port=3306, user=sql_user, password=sql_pw, d
 cursor = conn.cursor()
 cursor.execute("SELECT * FROM answerSheet_2;")
 rows = cursor.fetchall()
+# sql = "INSERT INTO answerSheet(qid,qans) VALUES(%s,%s)"
+# cursor.execute(sql, dbtuple)
+
+file = open("log.txt", "w")
 
 
 def requestBenedu(index):
@@ -57,15 +61,23 @@ def requestBenedu(index):
 
     soup = BeautifulSoup(reqText, "html.parser")
 
-    elapTime = time.time() - start_time
     print("==============================")
     print("URL: " + reqURL)
     # print("Text: " + reqText)
-    print("Soup: " + str(soup))
+    # print("Soup: " + str(soup))
     print("TextSize: " + str(len(reqText)))
     print("Headers: " + str(reqHeaders))
     print("Status: " + str(reqStatus))
     print("OK: " + str(reqOk))
+    file.write("==============================\n")
+    file.write("URL: " + reqURL + "\n")
+    file.write("TextSize: " + str(len(reqText)) + "\n")
+    file.write("Headers: " + str(reqHeaders) + "\n")
+    file.write("Status: " + str(reqStatus) + "\n")
+    file.write("OK: " + str(reqOk) + "\n")
+    elapTime = time.time() - start_time
+    file.write("--- %s seconds --- \n" % elapTime)
+    file.write("Soup: " + str(soup) + "\n\n\n\n")
 
 
 loop = 1
@@ -75,5 +87,5 @@ while 1:
     start_time = time.time()
     requestBenedu(reqId)
     reqId += 1
-    print("--- %s seconds ---" % elapTime)
+    print("--- %s seconds --- \n\n" % elapTime)
     time.sleep(0.01)
