@@ -86,7 +86,7 @@ def requestbenedu(index):
     parsetext = parsetext.replace("<span>", "")
     parsetext = parsetext.replace("</span>", "")
 
-    patternsearch(parsetext)
+    answer = patternsearch(parsetext)
 
     print("URL: " + requrl)
     if index == 1:
@@ -99,9 +99,9 @@ def requestbenedu(index):
         print("parseAnswer: " + str(parseAnswer))
         print("QAns: " + str(answer))
     if gotAns == 0:
-        print("!!! RegEx pattern error !!!")
+        print("!!! Pattern error !!!")
         print(parseAnswer)
-        print(parsetext)
+        # print(parsetext)
 
     logFile.write("==============================\n")
     logFile.write("URL: " + requrl + "\n")
@@ -115,16 +115,17 @@ def requestbenedu(index):
         logFile.write("parseAnswer: " + str(parseAnswer) + "\n")
         logFile.write("QAns: " + str(answer) + "\n")
     if gotAns == 0:
-        logFile.write("\n!!! RegEx pattern error !!!\n")
+        logFile.write("\n!!! Pattern error !!!\n")
         logFile.flush()
-        exit()
+        if index != 719:
+            exit()
     logFile.flush()
 
 
 def patternsearch(parsetext):
-    global answer
     global gotAns
     global parseAnswer
+    answer = -1
 
     parseAnswer = re.findall("<p>[①②③④⑤]</p>", parsetext)  # list var
     if len(parseAnswer) == 0:
@@ -140,6 +141,7 @@ def patternsearch(parsetext):
         elif "②" in parseAnswer:
             answer = 2
         elif "③" in parseAnswer:
+            print("HERE")
             answer = 3
         elif "④" in parseAnswer:
             answer = 4
@@ -152,39 +154,42 @@ def patternsearch(parsetext):
         elif parseAnswer.count("②") == 2:
             answer = 2
         elif parseAnswer.count("③") == 2:
+            print("HERE1")
             answer = 3
         elif parseAnswer.count("④") == 2:
             answer = 4
         elif parseAnswer.count("⑤") == 2:
             answer = 5
 
-    if (len(parseAnswer) == 0 or len(parseAnswer) == 4):  # 오답풀이 영역에서 없는번호로 선택
+    if len(parseAnswer) == 0 or len(parseAnswer) == 4:  # 오답풀이 영역에서 없는번호로 선택
         parsetext = parsetext[parsetext.find("오답풀이"):]
         parseAnswer = re.findall("[①②③④⑤]", parsetext)
-        if "①" not in parseAnswer:
-            answer = 1
-        elif "②" not in parseAnswer:
-            answer = 2
-        elif "③" not in parseAnswer:
-            answer = 3
-        elif "④" not in parseAnswer:
-            answer = 4
-        elif "⑤" not in parseAnswer:
-            answer = 5
+        if len(parseAnswer) > 0:
+            if "①" not in parseAnswer:
+                answer = 1
+            elif "②" not in parseAnswer:
+                answer = 2
+            elif "③" not in parseAnswer:
+                print("HERE2")
+                answer = 3
+            elif "④" not in parseAnswer:
+                answer = 4
+            elif "⑤" not in parseAnswer:
+                answer = 5
 
     # print("DEBUG_parseAnswer.count: " + str(len(parseAnswer)))
     # print("DEBUG_answer: " + str(answer))
 
-    gotAns = 1 if answer != -1 else -1
+    gotAns = 1 if answer != -1 else 0
+    return answer
 
 
 # global var declaration
-answer = -1
 gotAns = 0
 parseAnswer = ""
 
 loop = 1
-reqId = 719  # 719는 답이 없는데 있는걸로 체크됨
+reqId = 992
 elapTime = 0.0
 
 
