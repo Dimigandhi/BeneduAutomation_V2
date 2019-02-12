@@ -1,12 +1,48 @@
 ==============================
-URL: https://www.benedu.co.kr/Views/00_Common/99_BeneduQuestion.aspx?qst_id=992
-TextSize: 20506
-QID: 992
+URL: https://www.benedu.co.kr/Views/00_Common/99_BeneduQuestion.aspx?qst_id=4087
+TextSize: 27349
+QID: 4087
+parseAnswer: ['¨ê']
+QAns: 4
+==============================
+URL: https://www.benedu.co.kr/Views/00_Common/99_BeneduQuestion.aspx?qst_id=4088
+TextSize: 11473
+QID: 4088
+
+!!! Unable to find answer
+==============================
+URL: https://www.benedu.co.kr/Views/00_Common/99_BeneduQuestion.aspx?qst_id=4089
+TextSize: 13286
+QID: 4089
 parseAnswer: ['¨é']
 QAns: 3
 ==============================
-URL: https://www.benedu.co.kr/Views/00_Common/99_BeneduQuestion.aspx?qst_id=993
-TextSize: 19828
-QID: 993
+URL: https://www.benedu.co.kr/Views/00_Common/99_BeneduQuestion.aspx?qst_id=4090
+TextSize: 13390
+QID: 4090
+parseAnswer: ['¨ë']
+QAns: 5
+==============================
+URL: https://www.benedu.co.kr/Views/00_Common/99_BeneduQuestion.aspx?qst_id=4091
+TextSize: 15293
+QID: 4091
+parseAnswer: ['¨é']
+QAns: 3
+==============================
+URL: https://www.benedu.co.kr/Views/00_Common/99_BeneduQuestion.aspx?qst_id=4092
+TextSize: 22538
+QID: 4092
 
-!!! Pattern error !!!
+!!! Unable to find answer
+==============================
+URL: https://www.benedu.co.kr/Views/00_Common/99_BeneduQuestion.aspx?qst_id=4093
+TextSize: 30600
+QID: 4093
+
+!!! Unable to find answer
+==============================
+URL: https://www.benedu.co.kr/Views/00_Common/99_BeneduQuestion.aspx?qst_id=4094
+TextSize: 20219
+QID: 4094
+parseAnswer: ['¨è']
+QAns: 2

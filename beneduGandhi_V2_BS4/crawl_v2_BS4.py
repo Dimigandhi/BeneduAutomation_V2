@@ -65,29 +65,34 @@ def requestbenedu(index):
 
     if len(req.text) <= 4000:  # no data
         print("Index " + str(index) + " no data")
-        # logFile.write("Index " + str(index) + " no data")
-        # logFile.flush()
+        logFile.write("Index " + str(index) + " no data")
+        logFile.flush()
         return
 
     soup = BeautifulSoup(reqtext, "html.parser")
     parsetext = str(soup)
     if parsetext.find("body") == -1:  # string format error
         print("Index " + str(index) + " no data")
-        # logFile.write("Index " + str(index) + " no data")
-        # logFile.flush()
+        logFile.write("Index " + str(index) + " no data")
+        logFile.flush()
         return
 
     parsetext = parsetext[parsetext.find("body"):]
     parsetext = parsetext[:parsetext.find("/body")]
     parsetext = parsetext.replace(" ", "")
-    parsetext = parsetext.replace("style=\"\"", "")
+    parsetext = parsetext.replace("style", "")
+    parsetext = parsetext.replace("=", "")
+    parsetext = parsetext.replace("\"", "")
     parsetext = parsetext.replace("\n", "")
     parsetext = parsetext.replace("\r", "")
     parsetext = parsetext.replace("<span>", "")
     parsetext = parsetext.replace("</span>", "")
+    parsetext = parsetext.replace(".", "")
+    parsetext = parsetext.replace("&nbsp;", "")
 
     answer = patternsearch(parsetext)
 
+    print("==============================")
     print("URL: " + requrl)
     if index == 1:
         print("Headers: " + str(reqheaders))
@@ -99,9 +104,9 @@ def requestbenedu(index):
         print("parseAnswer: " + str(parseAnswer))
         print("QAns: " + str(answer))
     if gotAns == 0:
-        print("!!! Pattern error !!!")
+        print("!!! Unable to find answer")
         print(parseAnswer)
-        # print(parsetext)
+        print(parsetext)
 
     logFile.write("==============================\n")
     logFile.write("URL: " + requrl + "\n")
@@ -115,10 +120,7 @@ def requestbenedu(index):
         logFile.write("parseAnswer: " + str(parseAnswer) + "\n")
         logFile.write("QAns: " + str(answer) + "\n")
     if gotAns == 0:
-        logFile.write("\n!!! Pattern error !!!\n")
-        logFile.flush()
-        if index != 719:
-            exit()
+        logFile.write("\n!!! Unable to find answer\n")
     logFile.flush()
 
 
@@ -132,6 +134,8 @@ def patternsearch(parsetext):
         parseAnswer = re.findall("<p>[①②③④⑤][^~]</p>", parsetext)
     if len(parseAnswer) == 0:
         parseAnswer = re.findall("<p>[^~][①②③④⑤]</p>", parsetext)
+    if len(parseAnswer) == 0:
+        parseAnswer = re.findall("\[[①②③④⑤]\]", parsetext)
 
     parseAnswer = re.findall("[①②③④⑤]", str(parseAnswer))
 
@@ -141,27 +145,27 @@ def patternsearch(parsetext):
         elif "②" in parseAnswer:
             answer = 2
         elif "③" in parseAnswer:
-            print("HERE")
             answer = 3
         elif "④" in parseAnswer:
             answer = 4
         elif "⑤" in parseAnswer:
             answer = 5
 
-    if len(parseAnswer) == 6:  # 문제번호도 인식하므로 2번씩 있는번호로
+    # 문제번호도 인식하므로 2번씩 있는번호로
+    if len(parseAnswer) == 6:
         if parseAnswer.count("①") == 2:
             answer = 1
         elif parseAnswer.count("②") == 2:
             answer = 2
         elif parseAnswer.count("③") == 2:
-            print("HERE1")
             answer = 3
         elif parseAnswer.count("④") == 2:
             answer = 4
         elif parseAnswer.count("⑤") == 2:
             answer = 5
 
-    if len(parseAnswer) == 0 or len(parseAnswer) == 4:  # 오답풀이 영역에서 없는번호로 선택
+    # 오답풀이 영역에서 없는번호로 선택
+    if len(parseAnswer) == 0 or len(parseAnswer) == 4 or len(parseAnswer) == 9:
         parsetext = parsetext[parsetext.find("오답풀이"):]
         parseAnswer = re.findall("[①②③④⑤]", parsetext)
         if len(parseAnswer) > 0:
@@ -170,31 +174,25 @@ def patternsearch(parsetext):
             elif "②" not in parseAnswer:
                 answer = 2
             elif "③" not in parseAnswer:
-                print("HERE2")
                 answer = 3
             elif "④" not in parseAnswer:
                 answer = 4
             elif "⑤" not in parseAnswer:
                 answer = 5
 
-    # print("DEBUG_parseAnswer.count: " + str(len(parseAnswer)))
-    # print("DEBUG_answer: " + str(answer))
-
     gotAns = 1 if answer != -1 else 0
     return answer
 
 
+loop = 1
+reqId = 4087
+
 # global var declaration
 gotAns = 0
 parseAnswer = ""
-
-loop = 1
-reqId = 992
 elapTime = 0.0
 
-
 while 1:
-    print("==============================")
     start_time = time.time()
     requestbenedu(reqId)
     reqId += 1
