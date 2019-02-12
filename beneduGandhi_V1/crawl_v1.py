@@ -8,10 +8,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 import pymysql, random, time
 
+from accounts import *
 
-sql_ip = '149.28.29.84'
-sql_user = 'benedu_RW'
-sql_pw = 'bendbpass!@'
 
 indexURL = 'https://benedu.co.kr/Index.aspx'
 mainURL = 'https://benedu.co.kr/Views/01_Students/00StdHome.aspx'
@@ -50,7 +48,7 @@ SUBJECT_DICT = {
     "drafting": '#body_rdoSbjCode_8'
 }
 
-conn = pymysql.connect(host=sql_ip, port=3306, user=sql_user, password=sql_pw, database='benedu')
+conn = pymysql.connect(host=sql_ip, port=3306, user=sql_RW_user, password=sql_RW_pw, database='benedu')
 cursor = conn.cursor()
 cursor.execute("SELECT * FROM answerSheet;")
 rows = cursor.fetchall()

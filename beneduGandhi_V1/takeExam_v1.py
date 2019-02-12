@@ -8,10 +8,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 import pymysql, random, time
 
+from accounts import *
 
-sql_ip = '149.28.29.84'
-sql_user = 'benedu_READ'
-sql_pw = 'benpass'
 
 indexURL = 'https://benedu.co.kr/Index.aspx'
 mainURL = 'https://benedu.co.kr/Views/01_Students/00StdHome.aspx'

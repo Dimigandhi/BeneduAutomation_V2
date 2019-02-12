@@ -1,5 +1,7 @@
 import os, time, json, requests
 
+from accounts import *
+
 # from time import gmtime, strftime
 from datetime import datetime
 from bs4 import BeautifulSoup
@@ -11,11 +13,10 @@ from selenium.webdriver.common.keys import Keys
 
 # Anti-Captcha API URL
 API_URL = "https://api.anti-captcha.com/createTask"
-# Anti-Captcha API-KEY
-API_KEY = "b13a4d5d02334e34c33b02a82c4bfef1"
 # Benedu Site Key
 site_Key = "6Lcx81EUAAAAAAHX3UAIdQnNSBjnb0XOPcegqOjZ"
-
+# Anti-Captcha API-KEY
+# accounts.py -> API_KEY variable
 # Localhost Site Key
 site_Key = "6LfhymQUAAAAAOVG5FQtdIbEcw_ywvv_P841oYMb"
 
