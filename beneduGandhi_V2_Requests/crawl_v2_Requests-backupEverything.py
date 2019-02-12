@@ -2,8 +2,6 @@ from bs4 import BeautifulSoup
 import requests
 import pymysql
 import time
-import re
-# import Comment
 
 from accounts import *
 
@@ -17,15 +15,13 @@ cursor = conn.cursor()
 # sql = "INSERT INTO answerSheet(qid,qans) VALUES(%s,%s)"
 # cursor.execute(sql, dbtuple)
 
-# logFile = open("log.txt", "w")  # not for this script
-
 
 def requestbenedu(index):
     global elapTime
     requrl = crawlURL + str(index)
     req = requests.get(requrl)
 
-    while req.status_code != 200:  # Error
+    while req.status_code != 200 or req.ok == False:  # Error
         errorloop = 1
         req = requests.get(requrl)
         if errorloop >= 5:  # Repeated errors
@@ -34,20 +30,22 @@ def requestbenedu(index):
             print("URL: " + requrl + "\n")
             break
 
-    reqtext = req.text
-    reqheaders = req.headers
-    reqstatus = req.status_code
-    reqok = req.ok
+    print("Index " + str(index) + " response OK")
 
-    if len(req.text) <= 4000:  # no data
-        print("Index " + str(index) + " no data")
-        return
+    parsetext = str(BeautifulSoup(req.text, "html.parser"))
 
-    soup = BeautifulSoup(reqtext, "html.parser")
-    parsetext = str(soup)
-    if parsetext.find("body") == -1:  # string format error
-        print("Index " + str(index) + " no data")
-        return
+    if len(req.text) <= 4000 or parsetext.find("body") == -1:  # no data
+        print("Index " + str(index) + " NO-DATA")
+        dataok = 0
+    else:
+        print("Index " + str(index) + " data OK")
+        dataok = 1
+
+    sql = """INSERT INTO beneduBackup (qid, text, dataOK) VALUES(%s, %s, %s)"""
+    cursor.execute(sql, (str(index), parsetext, dataok))
+    conn.commit()
+
+    pass
 
 
 loop = 1
@@ -57,9 +55,10 @@ reqId = 1
 elapTime = 0.0
 
 while 1:
+    print("\n------ Index ", reqId, " ------")
     start_time = time.time()
     requestbenedu(reqId)
     reqId += 1
     elapTime = time.time() - start_time
-    print("--- %d milliseconds --- \n\n" % (elapTime*1000))
+    print("--- %d milliseconds ---" % (elapTime*1000))
     time.sleep(0.01)
