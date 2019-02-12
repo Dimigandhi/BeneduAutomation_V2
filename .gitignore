@@ -4,4 +4,3 @@ workspace.xml
 __pycache__/
 .git/
 ben.txt
-**/accounts.py
