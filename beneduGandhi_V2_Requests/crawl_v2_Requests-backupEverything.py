@@ -9,11 +9,6 @@ crawlURL = "https://www.benedu.co.kr/Views/00_Common/99_BeneduQuestion.aspx?qst_
 
 conn = pymysql.connect(host=sql_ip, port=3306, user=sql_user, password=sql_pw, database='benedu')
 cursor = conn.cursor()
-# sql = "SELECT * FROM answerSheet_2;"
-# cursor.execute("sql")
-# rows = cursor.fetchall()
-# sql = "INSERT INTO answerSheet(qid,qans) VALUES(%s,%s)"
-# cursor.execute(sql, dbtuple)
 
 
 def requestbenedu(index):
@@ -41,17 +36,25 @@ def requestbenedu(index):
         print("Index " + str(index) + " data OK")
         dataok = 1
 
-    sql = """INSERT INTO beneduBackup (qid, text, dataOK) VALUES(%s, %s, %s)"""
-    cursor.execute(sql, (str(index), parsetext, dataok))
-    conn.commit()
+    if index >= 30000 and len(req.text) <= 3090:
+        time.sleep(0.5)
+        return
 
-    pass
+    try:
+        sql = """INSERT INTO beneduBackup (qid, text, dataOK) VALUES(%s, %s, %s)"""
+        cursor.execute(sql, (str(index), parsetext, dataok))
+        conn.commit()
+    except UnicodeEncodeError:
+        dataok = 0
+        print("Index " + str(index) + " EncodingError")
+        sql = """INSERT INTO beneduBackup (qid, text, dataOK) VALUES(%s, %s, %s)"""
+        cursor.execute(sql, (str(index), "UnicodeEncodeError", dataok))
+        conn.commit()
 
-
-loop = 1
-reqId = 1
 
 # global var declaration
+loop = 1
+reqId = 43252636514632
 elapTime = 0.0
 
 while 1:
